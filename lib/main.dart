@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:v_crag/services/crag_ar_screen.dart';
 import 'package:v_crag/services/file_path_test.dart';
 import 'package:v_crag/map_screen.dart';
 
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MapScreen(),
+      // home: MapScreen(),
+      home: CragsARScreen(),
     );
   }
 }

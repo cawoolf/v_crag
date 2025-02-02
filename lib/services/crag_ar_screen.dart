@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
 import 'package:geolocator/geolocator.dart';
-
+import 'package:vector_math/vector_math_64.dart' as vector;
 import '../model/carg.dart';
 
 class CragsARScreen extends StatefulWidget {
@@ -30,7 +30,8 @@ class _CragsARScreenState extends State<CragsARScreen> {
     ),
   ];
 
-  // Fetch user's current location
+  // Fetch user's current location.. Updated this with
+  // https://pub.dev/packages/geolocator/example
   Future<void> getCurrentLocation() async {
     try {
       userPosition = await Geolocator.getCurrentPosition(
@@ -63,12 +64,12 @@ class _CragsARScreenState extends State<CragsARScreen> {
       radius: 0.1,  // Adjust the size
     );
 
-    // final node = ArCoreNode(
-    //   shape: sphere,
-    //   position: ArCoreVector3(0.0, 0.0, -1.0),  // Adjust based on your location
-    // );
+    final node = ArCoreNode(
+      shape: sphere,
+      position: vector.Vector3(0.0, 0.0, -1.0),  // Adjust based on your location
+    );
 
-    // controller.addArCoreNode(node);
+    controller.addArCoreNode(node);
   }
 
   // Set up ARCore controller
